@@ -266,6 +266,7 @@ section {
     column-gap: 15%;
     width: 70vw;
     max-width: 160rem;
+    margin-top: 3rem;
 }
 
 #about-me #description {
@@ -601,6 +602,7 @@ footer #attributions {
     }
 
     #projects #continue-button {
+        margin-top: -1rem;
         margin-bottom: 2rem;
     }
 
@@ -650,7 +652,7 @@ footer #attributions {
     }
 
     #contact-container {
-        min-height: 500px;
+        min-height: 700px;
         justify-content: space-between;
     }
 
@@ -680,8 +682,7 @@ footer #attributions {
     #about-me-container {
         column-gap: 12%;
         width: 80vw;
-        max-width: 160rem;
-        
+        max-width: 160rem;        
     }
 
     #projects {
@@ -707,7 +708,7 @@ footer #attributions {
 
 @media only screen and (max-width: 1000px) {
     #about-me {
-        min-height: 700px;
+        min-height: 600px;
     }
     
     #about-me-container {
@@ -982,16 +983,20 @@ footer #attributions {
 }
 
 @media only screen and (max-width: 380px) {
+    #welcome-section {
+        min-height: 600px;
+    }
+    
     #welcome-section h1 {
-        font-size: 3rem;
+        font-size: 4rem;
     }
 
     #welcome-section #start {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
     }
 
     #welcome-section #start:hover {
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
     
     #galaxy-image img {
@@ -1044,3 +1049,5 @@ footer #attributions {
         justify-content: space-around;
     }
 }
+
+/* format code, comments, active for links and icons */
