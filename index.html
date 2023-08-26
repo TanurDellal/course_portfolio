@@ -6,14 +6,17 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <title>Portfolio: Tanur Dellal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/d90fee3f36.js" crossorigin="anonymous"></script>
+    <script 
+      src="https://kit.fontawesome.com/d90fee3f36.js" 
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header class="heading-font">
       <nav id="navbar">
-        <div class="dropdown">
-          <button>
-            <i id="menu" class="bx bx-menu"></i>
+        <div class="dropdown-div">
+          <button id="navbar-menu-button" class="button">
+            <i onclick="openCloseDropdown()" title="menu" id="menu-icon" class="bx bx-menu"></i>
           </button>
           <div class="dropdown-options">
             <a href="#welcome-section">Home</a>
@@ -42,7 +45,7 @@
     <section id="welcome-section" class="heading-font">
       <div id="greeting">
         <h1>Welcome</h1>
-        <a id="start" href="#about-me">&#60; Click here to start &#62;</a>
+        <a id="start-button" href="#about-me">&#60; Click here to start &#62;</a>
       </div>
       <img src="images/stars-asset.png" id="stars">
       <img src="images/only-mountains-asset.png" id="mountains">
@@ -88,7 +91,7 @@
                 title="Product Landing Page - Project Preview"
                 alt="Product Landing Page - Project Preview"
               >
-              <div id="project-title">
+              <div class="project-tile">
                 <h3>Product Landing Page</h3>
               </div>
             </a>
@@ -101,7 +104,7 @@
                 title="Tribute Page - Project Preview"
                 alt="Tribute Page - Project Preview"
               >
-              <div id="project-title">
+              <div class="project-tile">
                 <h3>Tribute Page</h3>
               </div>
             </a>
@@ -114,7 +117,7 @@
                 title="Technical Documentation Page - Project Preview"
                 alt="Technical Documentation Page - Project Preview"
               >
-              <div id="project-title">
+              <div class="project-tile">
                 <h3>Technical Documentation Page</h3>
               </div>
             </a>
@@ -127,7 +130,7 @@
                 title="Registration Form Page - Project Preview"
                 alt="Registration Form Page - Project Preview"
               >
-              <div id="project-title">
+              <div class="project-tile">
                 <h3>Registration Form</h3>
               </div>
             </a>
@@ -151,16 +154,16 @@
             src="images/space-image.png"
           >
           <div id="media-icons-container">
-            <a class="profile-link" target="_blank" title="My LinkedIn" href="https://www.linkedin.com/in/tanurdellal/">
+            <a id="profile-link" target="_blank" title="My LinkedIn" href="https://www.linkedin.com/in/tanurdellal/">
               <i id="icon" class="bx bxl-linkedin-square"></i>
             </a>
-            <a class="profile-link" target="_blank" title="My GitHub" href="https://github.com/TanurDellal">
+            <a id="profile-link" target="_blank" title="My GitHub" href="https://github.com/TanurDellal">
               <i id="icon" class="bx bxl-github"></i>
             </a>
-            <a class="profile-link" target="_blank" title="My Discord" href="https://discordapp.com/users/95593036641218560">
+            <a id="profile-link" target="_blank" title="My Discord" href="https://discordapp.com/users/95593036641218560">
               <i id="icon" class="bx bxl-discord-alt"></i>
             </a>
-            <a class="profile-link" target="_blank" title="My Email" href="mailto:tanurdellal@hotmail.com">
+            <a id="profile-link" target="_blank" title="My Email" href="mailto:tanurdellal@hotmail.com">
               <i id="icon" class='bx bx-envelope' ></i>
             </a>
           </div>
@@ -172,6 +175,22 @@
         </div>
       </div>
     </section>
+    <script defer>
+      var dropdown = document.querySelector('.dropdown-options');
+      var icon = document.querySelector('#menu-icon');
+      function openCloseDropdown() {
+        window.onclick = function(event) {
+          if(event.target.matches('#menu-icon') && dropdown.style.display != 'block') {
+            dropdown.style.display = 'block';
+            icon.classList.add('button-press');
+          }
+          else {
+            dropdown.style.display = 'none';
+            icon.classList.remove('button-press');
+          }
+        }
+      }
+    </script>
   </body>
   <footer>
     <p id="creator">

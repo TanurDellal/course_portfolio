@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800;900&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600;700&display=swap');
 
 :root {
@@ -31,29 +30,9 @@ body {
     font-family: 'Orbitron', sans-serif;
 }
 
+
 .heading-gradient {
     font-size: 4rem;
-    font-weight: 500;
-    background: var(--gradient-heading);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 500% auto;
-    animation: gradient-flow 4s infinite;
-    animation-timing-function: linear;
-}
-
-.flowing-background-gradient {
-    font-size: 1.5rem;
-    font-weight: 500;
-    background: var(--gradient-heading);
-    background-size: 500% auto;
-    animation: gradient-flow 4s infinite;
-    animation-timing-function: linear;
-}
-
-.flowing-text-gradient {
-    font-size: 1.5rem;
     font-weight: 500;
     background: var(--gradient-heading);
     -webkit-background-clip: text;
@@ -79,37 +58,64 @@ body {
     font-family: 'Raleway', Comic Sans;
 }
 
-#greeting {
-    z-index: 4;
-    position: absolute;
-    top: 30%;
-    left: 0;
-    right: 0;  
+@keyframes blink {
+    0% {
+        opacity: 100%;
+    }
+
+    25% {
+        opacity: 75%;
+    }
+
+    50% {
+        opacity: 50%;
+    }
+    75% {
+        opacity: 75%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
 }
 
-#welcome-section {
+section {
+    margin: auto;
     width: 100%;
+    min-width: 320px;
     height: 100vh;
-    position: relative;
+    max-height: fit-content;
 }
 
-#welcome-section #stars {
-    z-index: 0;
+#welcome-section, #about-me, #projects, #contact {
+    min-width: 360px;
 }
 
-#welcome-section #mountains {
-    z-index: 2;
+#continue-button {
+    width: fit-content;
+    height: 5rem;
+    display: block;
+    text-align: center;
 }
 
-#stars, #mountains {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: bottom;
+#continue-button img {
+    width: 4rem;
+    text-align: center;
+    transition: 0.6s;
 }
+
+#continue-button img:hover {
+    transform: translateY(1rem);
+}
+
+#continue-button img:active {
+    color: inherit;
+    background-color: transparent;
+}
+
+
+/* ------------------------------ NAVBAR  ----------------------------- */
+
 
 header #navbar {
     display: flex;
@@ -121,7 +127,7 @@ header #navbar {
     font-weight: 400;
 }
 
-.dropdown {
+.dropdown-div {
     visibility: hidden;
     position: absolute;
 }
@@ -139,6 +145,11 @@ header #navbar {
 
 #logo:hover {
     animation: blink 1s linear infinite;
+}
+
+#logo:active {
+    color: var(--orange);
+    background-color: transparent;
 }
 
 #nav-links {
@@ -182,6 +193,47 @@ header #navbar {
     transform: translate3d(0,0.2em,0);
 }
 
+.nav-link:active {
+    color: var(--orange);
+    background-color: transparent;
+}
+
+
+/* ------------------------- WELCOME SECTION  ------------------------- */
+
+
+#welcome-section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+#welcome-section #stars {
+    z-index: 0;
+}
+
+#welcome-section #mountains {
+    z-index: 2;
+}
+
+#stars, #mountains {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+#greeting {
+    z-index: 4;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;  
+}
+
 #welcome-section h1 {
     z-index: 5;
     font-size: 7em;
@@ -191,7 +243,7 @@ header #navbar {
     animation: blink 2.5s linear infinite;
 }
 
-#start{
+#start-button{
     z-index: 5;
     font-size: 1.5em;
     text-align: center;
@@ -202,50 +254,23 @@ header #navbar {
     transition: 0.6s;
 }
 
-#start:hover {
+#start-button:hover {
     font-size: 1.75em;
     opacity: 0.7;
-
 }
 
-@keyframes blink {
-    0% {
-        opacity: 100%;
-    }
-
-    25% {
-        opacity: 75%;
-    }
-
-    50% {
-        opacity: 50%;
-    }
-    75% {
-        opacity: 75%;
-    }
-
-    100% {
-        opacity: 100%;
-    }
-}
-
-section {
-    margin: auto;
-    width: 100%;
-    min-width: 320px;
-    height: 100vh;
-    max-height: fit-content;
-}
-
-#welcome-section, #about-me, #projects, #contact {
-    min-width: 360px;
+#start-button:active {
+    color: var(--orange);
+    background-color: transparent;
 }
 
 #navbar {
     min-width: 360px;
 }
 
+
 /* ----------------------- ABOUT ME SECTION ---------------------------- */
+
 
 #about-me {
     width: 100%;
@@ -299,8 +324,6 @@ section {
     border-radius: 50%;
     overflow: hidden;
     margin: 0.35rem;
-
-
 }
 
 #profile-photo img {
@@ -317,26 +340,9 @@ section {
     margin-top: 6.7%;
 }
 
-#continue-button {
-    width: fit-content;
-    height: 5rem;
-    display: block;
-    text-align: center;
-}
-
 #about-me #continue-button {
     margin-top: 15vh;
     margin-bottom: 0.86rem;
-}
-
-#continue-button img {
-    width: 4rem;
-    text-align: center;
-    transition: 0.6s;
-}
-
-#continue-button img:hover {
-    transform: translateY(1rem);
 }
 
 
@@ -414,18 +420,24 @@ section {
     opacity: 0.2;
 }
 
-.project:hover #project-title {
+.project:hover .project-tile {
     opacity: 1;
     font-size: 1.5rem;
     padding: 1.935rem;
     background: linear-gradient(45deg, rgba(190, 73, 84, 0.75), rgba(80, 4, 160, 0.7));
 }
 
+.project:active {
+    opacity: 0.3;
+    color: inherit;
+    background-color: inherit;
+}
+
 .project {
     box-shadow: 3px 3px 10px black;
 }
 
-#project-title {
+.project-tile {
     font-weight: 500;
     position: absolute;
     transition: 0.5s ease;
@@ -446,7 +458,6 @@ section {
     font-size: 1.5rem
 }
 
-
 .left img {
     object-position: top left;
 }
@@ -455,6 +466,7 @@ section {
 #projects #continue-button {
     margin-bottom: 0.15rem;
 }
+
 
 /* ------------------------------ CONTACT SECTION ------------------------------ */
 
@@ -514,7 +526,7 @@ section {
     left: 0;
 }
 
-.profile-link {
+#profile-link {
     color: var(--white);
     width: fit-content;
     height: fit-content;
@@ -531,6 +543,12 @@ section {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     transform: translateY(-1rem);
+}
+
+#icon:active {
+    opacity: 0.3;
+    color: inherit;
+    background-color: inherit;
 }
 
 #contact #continue-button {
@@ -563,8 +581,6 @@ footer #attributions {
 #creator a, #attributions a {
     color: var(--white);
     font-weight: 500;
-
-
 }
 
 #creator a:hover, #attributions a:hover {
@@ -578,23 +594,44 @@ footer #attributions {
     animation-timing-function: linear;
 }
 
+#creator a:active, #attributions a:active {
+    opacity: 0.3;
+    color: inherit;
+    background-color: inherit;
+}
 
-/* ---------------------- RESPONSIVE QUERIES --------------------------- */
+/* ---------------------- RESPONSIVE QUERIES ------------------------- */
 
-/* widths > 2560 */
+
+/*------------------------- WIDTHS <= 1550PX -------------------------*/
 
 @media only screen and (max-width: 1550px) {
     html {
         font-size: 0.85em;
     }
 
+    #continue-button img {
+        width: 3.5rem;
+    }
+
+    /*------------------- WELCOME SECTION -------------------*/
+
     #welcome-section {
         min-height: 600px;
     }
 
+    /*------------------ ABOUT ME SECTION -------------------*/
+
     #about-me {
         min-height: 660px;
     }
+
+    #about-me #continue-button {
+        margin-top: 15vh;
+        margin-bottom: 0.35rem;
+    }
+
+    /*------------------ PROJECTS SECTION -------------------*/
 
     #projects {
         min-height: 740px;
@@ -617,13 +654,24 @@ footer #attributions {
     #projects #heading {
         margin-top: 4rem;
     }
-    
-    #continue-button img {
-        width: 3.5rem;
+
+    /*------------------ CONTACT SECTION -------------------*/
+
+    #contact {
+        min-height: 700px;
     }
 
-    #about-me #continue-button {
-        margin-top: 4rem;
+    #contact-heading {
+        margin-bottom: 2rem;
+    }
+
+    #contact-container {
+        min-height: 700px;
+        justify-content: space-between;
+    }
+
+    #galaxy-image {
+        width: 70%;
     }
 
     #media-icons-container {
@@ -634,50 +682,25 @@ footer #attributions {
         font-size: 6rem;
     }
 
-    #about-me #continue-button {
-        margin-top: 15vh;
-        margin-bottom: 0.35rem;
-    }
-
-    #galaxy-image {
-        width: 70%;
-    }
-
-    #contact-heading {
-        margin-bottom: 2rem;
-    }
-
-    #contact {
-        min-height: 700px;
-    }
-
-    #contact-container {
-        min-height: 700px;
-        justify-content: space-between;
-    }
-
     #contact #continue-button {
         margin-top: 1rem;
         margin-bottom: 1rem;
     }
 }
 
+
+/*------------------------- WIDTHS <= 1100PX -------------------------*/
+
 @media only screen and (max-width: 1100px) {
     html {
         font-size: 0.7em;
     }
 
-    #icon {
-        font-size: 5rem;
-    }
-
-    #galaxy-image {
-        width: 80%;
-    } 
-
     #continue-button img {
         width: 3.5rem;
     }
+
+    /*------------------ ABOUT ME SECTION -------------------*/
 
     #about-me-container {
         column-gap: 12%;
@@ -685,12 +708,20 @@ footer #attributions {
         max-width: 160rem;        
     }
 
+    /*------------------ PROJECTS SECTION -------------------*/
+
     #projects {
         min-height: 680px;
     }
 
     #projects-grid {
         height: 40vh;
+    }
+    
+    /*------------------- CONTACT SECTION -------------------*/
+
+    #galaxy-image {
+        width: 80%;
     }
 
     #galaxy-image img {
@@ -706,7 +737,13 @@ footer #attributions {
     }
 }
 
+
+/*------------------------- WIDTHS <= 1000PX -------------------------*/
+
 @media only screen and (max-width: 1000px) {
+    
+    /*------------------ ABOUT ME SECTION -------------------*/
+
     #about-me {
         min-height: 600px;
     }
@@ -720,10 +757,14 @@ footer #attributions {
         width: 38%;
     }
 
+    /*------------------ PROJECTS SECTION -------------------*/
+
     #projects-grid {
         max-width: 90vw;
         width: 90vw;
     }
+
+    /*------------------- CONTACT SECTION -------------------*/
 
     #contact {
         min-height: 600px;
@@ -743,7 +784,23 @@ footer #attributions {
     }
 }
 
+
+/*------------------------- WIDTHS <= 675PX -------------------------*/
+
 @media only screen and (max-width: 675px) {
+
+    #about-me-text {
+        font-size: 1.3rem;
+    }
+
+    /*-------------------- NAVBAR SECTION -------------------*/
+
+    .nav-link {
+        padding: 1.2rem 1rem 0.625rem;
+    }
+
+    /*------------------ ABOUT ME SECTION -------------------*/
+
     #about-me {
         min-height: 730px;
         justify-content: space-between;
@@ -773,22 +830,18 @@ footer #attributions {
         bottom: -10px;
     }
 
-    #about-me-text {
-        font-size: 1.3rem;
-    }
-
     #about-me #continue-button {
         margin-top: 0;
     }
+
+    /*------------------ PROJECTS SECTION -------------------*/
 
     #projects-grid {
         max-width: 90vw;
         width: 90vw;
     }
 
-    .nav-link {
-        padding: 1.2rem 1rem 0.625rem;
-    }
+    /*------------------- CONTACT SECTION -------------------*/
 
     #galaxy-image {
         width: 90%;
@@ -802,17 +855,37 @@ footer #attributions {
     #contact-container {
         min-height: 550px;
     }
-
-
 }
 
+
+/*------------------------- WIDTHS <= 540PX -------------------------*/
+
 @media only screen and (max-width: 540px) {
-    #logo {
-        height: 100%;
-        padding: 0.7rem;
+
+    html {
+        font-size: 0.7em;
     }
 
-    .dropdown {
+    #about-me-text {
+        font-size: 1.7rem;
+    }
+
+    #continue-button img {
+        width: 5rem;
+    }
+
+    /*-------------------- NAVBAR SECTION -------------------*/
+
+    header #navbar {
+        justify-content: center;
+    }
+
+    #nav-links {
+        position: absolute;
+        visibility: hidden;
+    }
+
+    .dropdown-div {
         font-size: 1.1rem;
         z-index: 5;
         visibility: visible;
@@ -823,15 +896,12 @@ footer #attributions {
         width: fit-content;
     }
 
-    #greeting {
-        top: 20%;
+    #logo {
+        height: 100%;
+        padding: 0.7rem;
     }
 
-    #welcome-section h1 {
-        margin-bottom: 3rem;
-    }
-      
-    button{
+    #navbar-menu-button {
         border: none;
         height: fit-content;
         width: fit-content;
@@ -841,13 +911,13 @@ footer #attributions {
         background-color: var(--white);
     }
 
-    button #menu {
+    #navbar-menu-button #menu-icon {
         font-size: 2.5rem;
         transition: 0.5s;
         padding: 5px 15px;
     }
 
-    #menu:hover {
+    .button-press {
         background: linear-gradient(45deg, var(--orange), var(--purple));
         -webkit-background-clip: text;
         background-clip: text;
@@ -855,7 +925,7 @@ footer #attributions {
         transform: translateY(0.5rem);
     }
       
-    button:hover {
+    #navbar-menu-button:hover {
         background-color:#ddd;
     }
       
@@ -868,10 +938,6 @@ footer #attributions {
         box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
     }
       
-    .dropdown:hover .dropdown-options {
-        display: block;
-    }
-      
     .dropdown-options a {
         display: block;
         color: var(--white);
@@ -882,26 +948,24 @@ footer #attributions {
       
     .dropdown-options a:hover {
         color: #0a0a23;
-        background-color: #ddd;
+        background-color: var(--white);
     }
 
-    .dropdown-options a:hover {
-        color: #0a0a23;
-        background-color: #ddd;
+    /*------------------- WELCOME SECTION -------------------*/
+
+    #greeting {
+        top: 20%;
     }
 
-    header #navbar {
-        justify-content: center;
+    #welcome-section h1 {
+        margin-bottom: 3rem;
     }
 
-    #nav-links {
-        position: absolute;
-        visibility: hidden;
+    #welcome-section h1 {
+        font-size: 6rem;
     }
 
-    #about-me-text {
-        font-size: 1.7rem;
-    }
+    /*------------------ ABOUT ME SECTION -------------------*/
 
     #about-me {
         justify-content: center;
@@ -929,6 +993,8 @@ footer #attributions {
         bottom: -20px;
     }
 
+    /*------------------ PROJECTS SECTION -------------------*/
+
     #projects {
         min-height: 1250px;
     }
@@ -951,25 +1017,7 @@ footer #attributions {
         grid-template-rows: 23% 23% 23% 23%;
     } 
 
-    #welcome-section h1 {
-        font-size: 6rem;
-    }
-
-    #continue-button img {
-        width: 5rem;
-    }
-
-    #media-icons-container {
-        top: 35%;
-    }
-
-    #icon {
-        font-size: 6rem;
-    }
-
-    html {
-        font-size: 0.7em;
-    }
+    /*------------------- CONTACT SECTION -------------------*/
 
     #contact {
         justify-content: center;
@@ -980,9 +1028,22 @@ footer #attributions {
         flex-wrap: wrap;
         justify-content: space-around;
     }
+
+    #media-icons-container {
+        top: 35%;
+    }
+
+    #icon {
+        font-size: 6rem;
+    }
 }
 
+/*------------------------- WIDTHS <= 380PX -------------------------*/
+
 @media only screen and (max-width: 380px) {
+
+    /*------------------- WELCOME SECTION -------------------*/
+
     #welcome-section {
         min-height: 600px;
     }
@@ -991,14 +1052,50 @@ footer #attributions {
         font-size: 4rem;
     }
 
-    #welcome-section #start {
+    #welcome-section #start-button {
         font-size: 1.2rem;
     }
 
-    #welcome-section #start:hover {
+    #welcome-section #start-button:hover {
         font-size: 1.3rem;
     }
+
+    /*------------------ ABOUT ME SECTION -------------------*/
+
+    #about-me #description {
+        min-width: 320px;
+    }
+
+    /*------------------ PROJECTS SECTION -------------------*/
+
+    #projects-container {
+        width: 100%;
+        min-width: 360px;
+    }
+
+    #projects-grid {
+        width: 90vw;
+        min-width: 350px;
+        grid-template-columns: 90%;
+    }
     
+    /*------------------- CONTACT SECTION -------------------*/
+
+    #contact {
+        min-height: 750px;
+        justify-content: space-evenly;
+    }
+
+    #contact #continue-button {
+        margin-top: 5rem; 
+    }
+
+    #contact-container {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+
     #galaxy-image img {
         visibility: hidden;
         position: absolute;
@@ -1018,36 +1115,4 @@ footer #attributions {
     #icon {
         font-size: 7rem;
     }
-
-    #about-me #description {
-        min-width: 320px;
-    }
-
-    #projects-container {
-        width: 100%;
-        min-width: 360px;
-    }
-
-    #projects-grid {
-        width: 90vw;
-        min-width: 350px;
-        grid-template-columns: 90%;
-    }
-
-    #contact {
-        min-height: 750px;
-        justify-content: space-evenly;
-    }
-
-    #contact #continue-button {
-        margin-top: 5rem; 
-    }
-
-    #contact-container {
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: space-around;
-    }
 }
-
-/* format code, comments, active for links and icons */
